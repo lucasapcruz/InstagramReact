@@ -39,10 +39,15 @@ function Post(props) {
 }
 
 export default function Posts() {
+
+    const postsList = [
+        {userimg : "img/meowed.svg", username:"meowed", postimg:"img/gato-telefone.svg", likesimg:"img/respondeai.svg", likesHighlight:"respondeai", likesCount:"101.523"},
+        {userimg:"img/barked.svg", username:"barked", postimg:"img/dog.svg", likesimg:"img/adorable_animals.svg", likesHighlight:"adorable_animals", likesCount:"99.159"}
+    ]
+
     return (
         <div class="posts">
-            <Post userimg="img/meowed.svg" username="meowed" postimg="img/gato-telefone.svg" likesimg="img/respondeai.svg" likesHighlight="respondeai" likesCount="101.523"/>
-            <Post userimg="img/barked.svg" username="barked" postimg="img/dog.svg" likesimg="img/adorable_animals.svg" likesHighlight="adorable_animals" likesCount="99.159"/>
+            {postsList.map((p) => <Post userimg={p.userimg} username={p.username} postimg={p.postimg} likesimg={p.likesimg} likesHighlight={p.likesHighlight} likesCount={p.likesCount}/>)}
         </div>
     )
 }
