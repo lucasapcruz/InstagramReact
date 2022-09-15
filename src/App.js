@@ -1,3 +1,9 @@
-export default function App(){
+import Navbar from "./Navbar"
 
+export default function App(){
+    return(
+        <div>
+            <Navbar/>
+        </div>
+    )
 }
