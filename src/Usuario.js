@@ -4,9 +4,11 @@ export default function Usuario(){
 
     const [userName, setUserName] = useState("Catana")
 
+    const [userImg, setUserImg] = useState("img/catanacomics.svg")
+
     return(
         <div class="usuario">
-          <img src="img/catanacomics.svg" />
+          <img src={userImg} onClick={() => setUserImg(prompt("Insira o link para uma imagem:"))}/>
           <div class="texto">
             <strong>catanacomics</strong>
             <span>
