@@ -3,6 +3,13 @@ import { useState } from "react"
 function Post(props) {
 
     const [bookmark, setBookmark] = useState("bookmark-outline")
+    const [likeState, setLike] = useState("heart-outline")
+    const [likeCount, setLikeCount] = useState(props.likesCount);
+
+    const like = () => {
+        setLike(likeState==="heart"? "heart-outline":"heart")
+        setLikeCount(likeState==="heart"? likeCount-1:likeCount+1)
+    }
 
     return (
         <div class="post">
@@ -23,7 +30,7 @@ function Post(props) {
                 <div class="fundo">
                     <div class="acoes">
                         <div>
-                            <ion-icon name="heart-outline"></ion-icon>
+                            <ion-icon name={likeState} onClick={like}></ion-icon>
                             <ion-icon name="chatbubble-outline"></ion-icon>
                             <ion-icon name="paper-plane-outline"></ion-icon>
                         </div>
@@ -35,7 +42,7 @@ function Post(props) {
                     <div class="curtidas">
                         <img src={props.likesimg} />
                         <div class="texto">
-                            Curtido por <strong>{props.likesHighlight}</strong> e <strong>outras {props.likesCount} pessoas</strong>
+                            Curtido por <strong>{props.likesHighlight}</strong> e <strong>outras {likeCount}  pessoas</strong>
                         </div>
                     </div>
                 </div>
@@ -46,8 +53,8 @@ function Post(props) {
 export default function Posts() {
 
     const postsList = [
-        {userimg : "img/meowed.svg", username:"meowed", postimg:"img/gato-telefone.svg", likesimg:"img/respondeai.svg", likesHighlight:"respondeai", likesCount:"101.523"},
-        {userimg:"img/barked.svg", username:"barked", postimg:"img/dog.svg", likesimg:"img/adorable_animals.svg", likesHighlight:"adorable_animals", likesCount:"99.159"}
+        {userimg : "img/meowed.svg", username:"meowed", postimg:"img/gato-telefone.svg", likesimg:"img/respondeai.svg", likesHighlight:"respondeai", likesCount:101523},
+        {userimg:"img/barked.svg", username:"barked", postimg:"img/dog.svg", likesimg:"img/adorable_animals.svg", likesHighlight:"adorable_animals", likesCount:99159}
     ]
 
     return (
