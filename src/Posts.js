@@ -11,6 +11,11 @@ function Post(props) {
         setLikeCount(likeState==="heart"? likeCount-1:likeCount+1)
     }
 
+    const dblClickLike = () =>{
+        setLike("heart")
+        setLikeCount(likeState==="heart"? likeCount:likeCount+1)
+    }
+
     return (
         <div class="post">
                 <div class="topo">
@@ -24,7 +29,7 @@ function Post(props) {
                 </div>
 
                 <div class="conteudo">
-                    <img src={props.postimg} />
+                    <img src={props.postimg} onDoubleClick={dblClickLike} />
                 </div>
 
                 <div class="fundo">
