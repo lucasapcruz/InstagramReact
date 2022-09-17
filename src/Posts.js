@@ -47,7 +47,7 @@ function Post(props) {
                     <div class="curtidas">
                         <img src={props.likesimg} />
                         <div class="texto">
-                            Curtido por <strong>{props.likesHighlight}</strong> e <strong>outras {likeCount}  pessoas</strong>
+                            Curtido por <strong>{props.likesHighlight}</strong> e <strong>outras {Intl.NumberFormat('pt-BR').format(likeCount)}  pessoas</strong>
                         </div>
                     </div>
                 </div>
